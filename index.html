@@ -3,187 +3,1482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مقعد السيارة للأطفال - حماية أغلى ما تملك</title>
+    <title>Ù…Ù‚Ø¹Ø¯ Ø§Ù„Ø³ÙŠØ§Ø±Ø© Ù„Ù„Ø£Ø·ÙØ§Ù„ - Ø­Ù…Ø§ÙŠØ© Ø£ØºÙ„Ù‰ Ù…Ø§ ØªÙ…Ù„Ùƒ</title>
     <style>
-        /* جميع تنسيقات الصفحة والأقسام من الملف الأصلي (تجدها هنا كاملة) */
-        /* ستجد تنسيقات الهيدر، الصور، الاقسام، الميزات، الشهادات، فورم الطلب، صفحة الشكر، الفوتر... */
-        /* تحسين أزرار الصفحة للجوال ضمن الكود التالي: */
-        .cta-primary, .submit-button, .whatsapp-cta {
-            width: 100%;
-            max-width: 400px;
-            display: block;
-            margin: 15px auto !important;
-            padding: 18px 0;
-            font-size: 1.15em;
-            border-radius: 50px;
-            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
-            text-align: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .cta-primary { background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; font-weight: bold; border: none; cursor: pointer; }
-        .cta-primary:active { transform: scale(0.98);}
-        .submit-button { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; font-weight: bold; border: none; cursor: pointer; }
-        .submit-button:active { transform: scale(0.98);}
-        .whatsapp-cta { background: #25D366; color: white; font-weight: bold; border: none; cursor: pointer; align-items: center; gap: 12px; text-decoration: none; }
-        .whatsapp-cta:active { transform: scale(0.98);}
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif;
+            background: #f8f9fa;
+            color: #2c3e50;
+            line-height: 1.8;
+        }
+
+        /* Announcement Bar - REMOVED ANIMATION */
+        .announcement-bar {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
         @media (max-width: 768px) {
-            .cta-primary, .submit-button, .whatsapp-cta {
-                font-size: 1.1em;
-                padding: 15px 0;
-                max-width: 100%;
-                margin: 12px 0;
+            .announcement-bar {
+                font-size: 0.9em;
+                padding: 10px 15px;
             }
         }
-        /* ... أكمل جميع الـ CSS من ملفك الأصلي بدون أي حذف ... */
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .header-cta {
+            background: #27ae60;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .header-cta:hover {
+            background: #229954;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.1em;
+            }
+            .header-cta {
+                padding: 8px 20px;
+                font-size: 0.85em;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Product Images Section - TOP OF PAGE */
+        .product-images-top {
+            background: white;
+            padding: 30px 20px;
+            margin-top: 20px;
+        }
+
+        .images-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .main-product-image {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            margin-bottom: 15px;
+        }
+
+        .thumbnail-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .thumbnail-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .thumbnail-img:hover {
+            border-color: #667eea;
+        }
+
+        @media (max-width: 768px) {
+            .thumbnail-gallery {
+                grid-template-columns: 1fr;
+            }
+            .thumbnail-img {
+                height: 250px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .hero-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 30px 15px;
+            }
+            .hero h1 {
+                font-size: 1.5em;
+            }
+            .hero-subtitle {
+                font-size: 1em;
+            }
+            .badge {
+                padding: 10px 15px;
+                font-size: 0.85em;
+            }
+        }
+
+        /* Emotional Story */
+        .story-section {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .story-section h2 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        .story-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .story-highlight {
+            background: #fff3cd;
+            padding: 25px;
+            border-right: 5px solid #ffc107;
+            margin: 30px 0;
+            border-radius: 10px;
+            font-size: 1.2em;
+            color: #856404;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .story-section {
+                padding: 40px 15px;
+            }
+            .story-section h2 {
+                font-size: 1.5em;
+            }
+            .story-content {
+                font-size: 1em;
+            }
+            .story-highlight {
+                padding: 20px;
+                font-size: 1em;
+            }
+        }
+
+        /* Price Section */
+        .price-section {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .price-box {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 1.5em;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #e74c3c;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .discount-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+
+        .urgency-text {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        /* CTA Button - MOBILE OPTIMIZED */
+        .cta-primary {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+            transition: all 0.3s;
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin: 25px auto;
+            text-align: center;
+        }
+
+        .cta-primary:active {
+            transform: scale(0.98);
+        }
+
+        @media (max-width: 768px) {
+            .price-section {
+                padding: 35px 15px;
+            }
+            .current-price {
+                font-size: 2.5em;
+            }
+            .cta-primary {
+                padding: 18px 30px;
+                font-size: 1.1em;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* Video Section */
+        .video-section {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .video-section h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .video-subtitle {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .video-section {
+                padding: 40px 15px;
+            }
+            .video-section h2 {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Features */
+        .features-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .features-section h2 {
+            text-align: center;
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .features-section {
+                padding: 40px 15px;
+            }
+            .features-section h2 {
+                font-size: 1.5em;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Social Proof */
+        .social-proof {
+            background: #667eea;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .social-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .social-proof {
+                padding: 35px 15px;
+            }
+            .social-stats {
+                gap: 30px;
+            }
+            .stat-number {
+                font-size: 2em;
+            }
+        }
+
+        /* Testimonials - WITH REAL IMAGES */
+        .testimonials-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .testimonials-section h2 {
+            text-align: center;
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .testimonials-subtitle {
+            text-align: center;
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #667eea;
+        }
+
+        .testimonial-info h4 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-location {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .testimonial-rating {
+            color: #ffd700;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+
+        .testimonial-text {
+            font-size: 1em;
+            line-height: 1.7;
+            color: #555;
+            font-style: italic;
+        }
+
+        .verified-badge {
+            background: #27ae60;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            display: inline-block;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 40px 15px;
+            }
+            .testimonials-section h2 {
+                font-size: 1.5em;
+            }
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .testimonial-card {
+                padding: 20px;
+            }
+        }
+
+        /* Order Form - COMPLETELY REDESIGNED */
+        .order-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .order-section h2 {
+            text-align: center;
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .order-subtitle {
+            text-align: center;
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .order-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.05em;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: all 0.3s;
+            background: white;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.2);
+        }
+
+        .form-helper {
+            font-size: 0.85em;
+            color: #999;
+            margin-top: 5px;
+        }
+
+        .order-summary {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border: 2px dashed #27ae60;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 1em;
+        }
+
+        .summary-total {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #e74c3c;
+            border-top: 2px solid #ddd;
+            padding-top: 12px;
+            margin-top: 12px;
+        }
+
+        .cod-info {
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .submit-button {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px;
+            width: 100%;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(231, 76, 60, 0.4);
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .submit-button:active {
+            transform: scale(0.98);
+        }
+
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+            font-size: 0.85em;
+            color: #666;
+            flex-wrap: wrap;
+        }
+
+        .security-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .order-section {
+                padding: 40px 15px;
+            }
+            .order-section h2 {
+                font-size: 1.5em;
+            }
+            .order-container {
+                padding: 25px;
+            }
+            .form-group input,
+            .form-group textarea {
+                padding: 14px;
+            }
+            .submit-button {
+                padding: 18px;
+                font-size: 1.1em;
+            }
+            .summary-total {
+                font-size: 1.5em;
+            }
+        }
+
+        /* Thank You Page */
+        .thank-you-page {
+            display: none;
+            padding: 60px 20px;
+            text-align: center;
+            background: white;
+        }
+
+        .thank-you-page.active {
+            display: block;
+        }
+
+        .success-animation {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #27ae60 0%, #229954 100%);
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-icon {
+            font-size: 4em;
+            color: white;
+        }
+
+        .thank-you-page h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .thank-you-message {
+            font-size: 1.2em;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 35px;
+            line-height: 1.8;
+        }
+
+        .order-details-box {
+            background: #f8f9fa;
+            padding: 35px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin: 0 auto 35px;
+            text-align: right;
+        }
+
+        .order-details-box h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #ddd;
+            font-size: 1em;
+        }
+
+        .detail-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #e74c3c;
+        }
+
+        .whatsapp-cta {
+            background: #25D366;
+            color: white;
+            padding: 20px 40px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+
+        .whatsapp-cta:active {
+            transform: scale(0.98);
+        }
+
+        .next-steps {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            max-width: 700px;
+            margin: 35px auto 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .next-steps h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.6em;
+        }
+
+        .step {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            flex: 1;
+            text-align: right;
+        }
+
+        .step-content h4 {
+            color: #2c3e50;
+            margin-bottom: 6px;
+            font-size: 1.1em;
+        }
+
+        .step-content p {
+            color: #666;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            .thank-you-page {
+                padding: 40px 15px;
+            }
+            .thank-you-page h2 {
+                font-size: 1.8em;
+            }
+            .order-details-box,
+            .next-steps {
+                padding: 25px;
+            }
+            .whatsapp-cta {
+                padding: 16px 30px;
+                font-size: 1em;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+            opacity: 0.8;
+            font-size: 0.95em;
+        }
+
+        /* Floating WhatsApp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            z-index: 999;
+        }
+
+        .floating-whatsapp a {
+            background: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .floating-whatsapp {
+                bottom: 20px;
+                left: 20px;
+            }
+            .floating-whatsapp a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6em;
+            }
+        }
+
+        /* Countdown Timer - REMOVED ANIMATION */
+        .countdown-timer {
+            background: #e74c3c;
+            color: white;
+            padding: 18px;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .timer-display {
+            font-size: 1.8em;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .countdown-timer {
+                padding: 15px;
+                font-size: 0.95em;
+            }
+            .timer-display {
+                font-size: 1.4em;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- شريط الإعلان -->
+    <!-- Announcement Bar -->
     <div class="announcement-bar">
-        ⚡ عرض خاص لفترة محدودة: خصم 50% + توصيل مجاني لجميع المدن المغربية ⚡
+        âš¡ Ø¹Ø±Ø¶ Ø®Ø§Øµ Ù„ÙØªØ±Ø© Ù…Ø­Ø¯ÙˆØ¯Ø©: Ø®ØµÙ… 50% + ØªÙˆØµÙŠÙ„ Ù…Ø¬Ø§Ù†ÙŠ Ù„Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø¯Ù† Ø§Ù„Ù…ØºØ±Ø¨ÙŠØ© âš¡
     </div>
-    <!-- الهيدر -->
+
+    <!-- Header -->
     <div class="header">
         <div class="header-content">
-            <div class="logo">🚗 حماية الأطفال</div>
-            <a href="#order" class="header-cta">اطلب الآن</a>
+            <div class="logo">ðŸš— Ø­Ù…Ø§ÙŠØ© Ø§Ù„Ø£Ø·ÙØ§Ù„</div>
+            <a href="#order" class="header-cta">Ø§Ø·Ù„Ø¨ Ø§Ù„Ø¢Ù†</a>
         </div>
     </div>
-    <!-- صور المنتج بالأعلى -->
-    <div class="product-images-top">
-        <div class="container">
-            <div class="images-container">
-                <img src="IMG_1.jpg" alt="مقعد السيارة للأطفال" class="main-product-image" id="mainProductImage">
-                <div class="thumbnail-gallery">
-                    <img src="IMG_1.jpg" alt="صورة 1" class="thumbnail-img" onclick="changeMainImage(this.src)">
-                    <img src="IMG_2.jpg" alt="صورة 2" class="thumbnail-img" onclick="changeMainImage(this.src)">
+
+    <!-- Main Content -->
+    <div id="mainContent">
+        <!-- Product Images at Top -->
+        <div class="product-images-top">
+            <div class="container">
+                <div class="images-container">
+                    <img src="https://raw.githubusercontent.com/abdelghafour1223/audio/ce36aa8a06e3a85220a359d48cb4ad4a5bd25ea8/WhatsApp%20Image%202025-09-30%20at%2015.53.06_f70e7a28.jpg" alt="Ù…Ù‚Ø¹Ø¯ Ø§Ù„Ø³ÙŠØ§Ø±Ø© Ù„Ù„Ø£Ø·ÙØ§Ù„" class="main-product-image" id="mainProductImage">
+                    <div class="thumbnail-gallery">
+                        <img src="https://raw.githubusercontent.com/abdelghafour1223/audio/ce36aa8a06e3a85220a359d48cb4ad4a5bd25ea8/WhatsApp%20Image%202025-09-30%20at%2015.53.06_f70e7a28.jpg" alt="ØµÙˆØ±Ø© 1" class="thumbnail-img" onclick="changeMainImage(this.src)">
+                        <img src="https://raw.githubusercontent.com/abdelghafour1223/audio/refs/heads/main/WhatsApp%20Image%202025-09-30%20at%2015.53.05_6f92e613.jpg" alt="ØµÙˆØ±Ø© 2" class="thumbnail-img" onclick="changeMainImage(this.src)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="container">
+                <h1>ðŸ˜¢ ÙƒÙ„ Ø«Ø§Ù†ÙŠØ© Ø¨Ù„Ø§ Ø­Ù…Ø§ÙŠØ©... Ø®Ø·Ø± Ø¹Ù„Ù‰ Ø·ÙÙ„Ùƒ</h1>
+                <p class="hero-subtitle">Ù‡Ù„ ØªØ¹Ù„Ù… Ø£Ù† 90% Ù…Ù† Ø­ÙˆØ§Ø¯Ø« Ø§Ù„Ø£Ø·ÙØ§Ù„ ÙÙŠ Ø§Ù„Ø³ÙŠØ§Ø±Ø§Øª ÙƒØ§Ù†Øª ÙŠÙ…ÙƒÙ† ØªØ¬Ù†Ø¨Ù‡Ø§ØŸ</p>
+                <p style="font-size: 1.2em; margin: 15px 0;">Ø±Ø§Ø­Ø© Ø¨Ø§Ù„Ùƒ ÙˆØ£Ù…Ø§Ù† ÙˆÙ„Ø¯Ùƒ... Ù…Ø§ Ø¹Ù†Ø¯Ù‡Ù…Ø´ Ø«Ù…Ù†!</p>
+
+                <div class="hero-badges">
+                    <div class="badge">âœ… Ù…Ø·Ø§Ø¨Ù‚ Ù„Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„Ø£Ù…Ø§Ù† Ø§Ù„Ø¯ÙˆÙ„ÙŠØ©</div>
+                    <div class="badge">ðŸ‡²ðŸ‡¦ ØªÙˆØµÙŠÙ„ Ù„Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø¯Ù† Ø§Ù„Ù…ØºØ±Ø¨ÙŠØ©</div>
+                    <div class="badge">ðŸ’µ Ø§Ù„Ø¯ÙØ¹ Ø¹Ù†Ø¯ Ø§Ù„Ø§Ø³ØªÙ„Ø§Ù…</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown-timer">
+            Ø§Ù„Ø¹Ø±Ø¶ ÙŠÙ†ØªÙ‡ÙŠ Ø®Ù„Ø§Ù„: 
+            <div class="timer-display" id="countdown">23:45:12</div>
+        </div>
+
+        <!-- Emotional Story -->
+        <div class="story-section">
+            <div class="container">
+                <h2>ðŸ’” Ù‚ØµØ© Ø­Ù‚ÙŠÙ‚ÙŠØ© ØºÙŠØ±Øª Ø­ÙŠØ§Ø© Ø¹Ø§Ø¦Ù„Ø© Ù…ØºØ±Ø¨ÙŠØ©...</h2>
+                <div class="story-content">
+                    <p>
+                        ÙƒØ§Ù†Øª Ø³Ù…ÙŠØ±Ø©ØŒ Ø£Ù… Ù…Ù† Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡ØŒ ØªØ¸Ù† Ø£Ù† Ø­Ù…Ù„ Ø·ÙÙ„Ù‡Ø§ Ø¨ÙŠÙ† ÙŠØ¯ÙŠÙ‡Ø§ ÙÙŠ Ø§Ù„Ø³ÙŠØ§Ø±Ø© ÙƒØ§ÙÙ Ù„Ø­Ù…Ø§ÙŠØªÙ‡...
+                    </p>
+                    <p>
+                        ÙÙŠ ÙŠÙˆÙ… Ø¹Ø§Ø¯ÙŠØŒ ØªÙˆÙ‚ÙØª Ø§Ù„Ø³ÙŠØ§Ø±Ø© ÙØ¬Ø£Ø©... ÙˆØ§Ù„Ø·ÙÙ„ Ø§Ù†Ø²Ù„Ù‚ Ù…Ù† ÙŠØ¯ÙŠÙ‡Ø§ ÙˆÙˆØ¬Ù‡Ù‡ Ø§ØµØ·Ø¯Ù… Ø¨Ø§Ù„ÙƒØ±Ø³ÙŠ Ø§Ù„Ø£Ù…Ø§Ù…ÙŠ ðŸ˜¢
+                    </p>
+                    <div class="story-highlight">
+                        "Ù‚Ù„Øª Ù„Ù†ÙØ³ÙŠ: Ù…Ø§Ø´ÙŠ Ù…Ù…ÙƒÙ† Ù†Ø®Ø³Ø± ÙˆÙ„Ø¯ÙŠ Ø¨Ø³Ø¨Ø¨ 300 Ø¯Ø±Ù‡Ù…! Ø¯Ø§Ø¨Ø§ ÙˆÙ„Ø¯ÙŠ Ø¢Ù…Ù†ØŒ ÙˆØ£Ù†Ø§ Ù…Ø±ØªØ§Ø­Ø© Ø§Ù„Ø¨Ø§Ù„"
+                        <br><strong>- Ø³Ù…ÙŠØ±Ø©ØŒ Ø£Ù… Ù„Ø·ÙÙ„ÙŠÙ†</strong>
+                    </div>
+                    <p style="font-size: 1.3em; color: #e74c3c; font-weight: bold; margin-top: 25px;">
+                        Ù…Ø§ØªØ³ØªÙ†Ø§Ø´ Ø­ØªÙ‰ ÙŠÙ‚Ø¹ Ø§Ù„Ù…ÙƒØ±ÙˆÙ‡... Ø­Ù…ÙŠ ÙˆÙ„Ø¯Ùƒ Ø¯Ø§Ø¨Ø§!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Price Section -->
+        <div class="price-section">
+            <div class="container">
+                <div class="price-box">
+                    <h2 style="color: #2c3e50; margin-bottom: 20px;">ðŸŽ Ø¹Ø±Ø¶ Ø®Ø§Øµ Ù„ÙØªØ±Ø© Ù…Ø­Ø¯ÙˆØ¯Ø©</h2>
+                    <span class="old-price">599 Ø¯Ø±Ù‡Ù…</span>
+                    <span class="current-price">299 Ø¯Ø±Ù‡Ù…</span>
+                    <span class="discount-badge">ÙˆÙÙ‘Ø± 300 Ø¯Ø±Ù‡Ù…!</span>
+                    <p class="urgency-text">â° Ø¨Ø§Ù‚ÙŠ ÙÙ‚Ø· 17 Ù‚Ø·Ø¹Ø© Ø¨Ù‡Ø§Ø¯ Ø§Ù„Ø³Ø¹Ø±!</p>
+                    <button class="cta-primary" onclick="scrollToOrder()">
+                        ðŸ›’ Ø§Ø­ØµÙ„ Ø¹Ù„ÙŠÙ‡ Ø§Ù„Ø¢Ù† - Ø§Ù„Ø¯ÙØ¹ Ø¹Ù†Ø¯ Ø§Ù„Ø§Ø³ØªÙ„Ø§Ù…
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-section">
+            <div class="container">
+                <h2>ðŸŽ¥ Ø´Ø§Ù‡Ø¯ ÙƒÙŠÙ ÙŠØ¹Ù…Ù„ Ø§Ù„Ù…Ù‚Ø¹Ø¯</h2>
+                <p class="video-subtitle">Ø¯Ù‚ÙŠÙ‚ØªÙŠÙ† ÙÙ‚Ø· Ø¨Ø§Ø´ ØªÙÙ‡Ù… ÙƒÙŠÙØ§Ø´ Ù‡Ø§Ø¯ Ø§Ù„Ù…Ù‚Ø¹Ø¯ ØºØ§Ø¯ÙŠ ÙŠØ­Ù…ÙŠ Ø·ÙÙ„Ùƒ</p>
+                <div class="video-wrapper">
+                    <iframe src="https://drive.google.com/file/d/1L_Vd9dSRkmLoY6JQcdzZ89gCX4XgJMZR/preview" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="features-section">
+            <div class="container">
+                <h2>ðŸŒŸ Ù„ÙŠØ´ Ø§Ù„Ø¢Ø¨Ø§Ø¡ ÙˆØ§Ù„Ø£Ù…Ù‡Ø§Øª ÙƒÙŠØ®ØªØ§Ø±Ùˆ Ù‡Ø§Ø¯ Ø§Ù„Ù…Ù‚Ø¹Ø¯ØŸ</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸ›¡ï¸</div>
+                        <h3>Ø­Ù…Ø§ÙŠØ© Ù…Ø¶Ø§Ø¹ÙØ©</h3>
+                        <p>Ø£Ø­Ø²Ù…Ø© Ø£Ù…Ø§Ù† Ù…ØªØ¹Ø¯Ø¯Ø© Ø§Ù„Ù†Ù‚Ø§Ø· + ÙˆØ³Ø§Ø¯Ø© Ø­Ù…Ø§ÙŠØ© Ù„Ù„Ø±Ø£Ø³ ÙˆØ§Ù„Ø¬Ø³Ù…. Ø·ÙÙ„Ùƒ Ù…Ø­Ù…ÙŠ 100% Ù…Ù† Ø£ÙŠ ØµØ¯Ù…Ø©</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸŽ’</div>
+                        <h3>Ù…Ø­Ù…ÙˆÙ„ ÙˆØ®ÙÙŠÙ</h3>
+                        <p>ÙˆØ²Ù† Ø®ÙÙŠÙ Ø¨Ø²Ø§Ù! ÙƒØªÙ‚Ø¯Ø± ØªØ­Ø·Ùˆ ÙÙŠ Ø£ÙŠ Ø³ÙŠØ§Ø±Ø© ÙÙŠ Ø«ÙˆØ§Ù†ÙŠ. Ù…Ø«Ø§Ù„ÙŠ Ù„Ù„ØªØ§ÙƒØ³ÙŠØŒ Ø³ÙŠØ§Ø±Ø© Ø§Ù„Ø¹Ø§Ø¦Ù„Ø©ØŒ Ø£Ùˆ Ø§Ù„Ø³ÙØ±</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸ’º</div>
+                        <h3>Ø±Ø§Ø­Ø© ÙØ§Ø¦Ù‚Ø©</h3>
+                        <p>ÙˆØ³Ø§Ø¯Ø© Ù†Ø§Ø¹Ù…Ø© ÙˆÙ…Ø±ÙŠØ­Ø©. Ø·ÙÙ„Ùƒ ØºØ§Ø¯ÙŠ ÙŠÙƒÙˆÙ† Ù…Ø±ØªØ§Ø­ Ø­ØªÙ‰ ÙÙŠ Ø§Ù„Ø±Ø­Ù„Ø§Øª Ø§Ù„Ø·ÙˆÙŠÙ„Ø©</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">âš™ï¸</div>
+                        <h3>Ø³Ù‡Ù„ Ø§Ù„ØªØ±ÙƒÙŠØ¨</h3>
+                        <p>Ù…Ø§ Ù…Ø­ØªØ§Ø¬Ø´ Ø®Ø¨ÙŠØ±! ÙÙŠ Ø£Ù‚Ù„ Ù…Ù† Ø¯Ù‚ÙŠÙ‚Ø©ØŒ Ø§Ù„Ù…Ù‚Ø¹Ø¯ ÙŠÙƒÙˆÙ† Ø¬Ø§Ù‡Ø² ÙˆØ§Ù„Ø·ÙÙ„ Ø¢Ù…Ù†</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸ‘¶</div>
+                        <h3>Ù„Ù„Ø£Ø·ÙØ§Ù„ Ù…Ù† 4-12 Ø³Ù†Ø©</h3>
+                        <p>ØªØµÙ…ÙŠÙ… Ø°ÙƒÙŠ ÙŠÙƒØ¨Ø± Ù…Ø¹ Ø·ÙÙ„Ùƒ. Ø§Ø³ØªØ«Ù…Ø§Ø± Ø·ÙˆÙŠÙ„ Ø§Ù„Ù…Ø¯Ù‰ Ù„Ø³Ù„Ø§Ù…Ø© Ø¹Ø§Ø¦Ù„ØªÙƒ</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">ðŸ§¼</div>
+                        <h3>Ø³Ù‡Ù„ Ø§Ù„ØªÙ†Ø¸ÙŠÙ</h3>
+                        <p>Ù‚Ù…Ø§Ø´ Ù‚Ø§Ø¨Ù„ Ù„Ù„Ø¥Ø²Ø§Ù„Ø© ÙˆØ§Ù„ØºØ³Ù„. Ø­Ø§ÙØ¸ Ø¹Ù„Ù‰ Ù†Ø¸Ø§ÙØ© Ù…Ù‚Ø¹Ø¯ Ø·ÙÙ„Ùƒ Ø¨Ø³Ù‡ÙˆÙ„Ø©</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Proof -->
+        <div class="social-proof">
+            <div class="container">
+                <h2 style="margin-bottom: 40px;">ðŸŽ‰ Ø§Ù†Ø¶Ù… Ù„Ø¢Ù„Ø§Ù Ø§Ù„Ø¹Ø§Ø¦Ù„Ø§Øª Ø§Ù„Ù…ØºØ±Ø¨ÙŠØ© Ø§Ù„Ø³Ø¹ÙŠØ¯Ø©</h2>
+                <div class="social-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">8,547+</span>
+                        <span class="stat-label">Ø¹Ø§Ø¦Ù„Ø© Ø³Ø¹ÙŠØ¯Ø©</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9/5</span>
+                        <span class="stat-label">ØªÙ‚ÙŠÙŠÙ… Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">97%</span>
+                        <span class="stat-label">ÙŠÙˆØµÙˆÙ† Ø¨Ù‡ Ù„Ø£ØµØ¯Ù‚Ø§Ø¦Ù‡Ù…</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials with Real Images -->
+        <div class="testimonials-section">
+            <div class="container">
+                <h2>ðŸ’¬ Ø´Ù‡Ø§Ø¯Ø§Øª Ø­Ù‚ÙŠÙ‚ÙŠØ© Ù…Ù† Ø¢Ø¨Ø§Ø¡ ÙˆØ£Ù…Ù‡Ø§Øª Ù…ØºØ§Ø±Ø¨Ø©</h2>
+                <p class="testimonials-subtitle">Ø§Ø³Ù…Ø¹ Ø´Ù†Ùˆ ÙƒÙŠÙ‚ÙˆÙ„Ùˆ Ø§Ù„Ø¹Ø§Ø¦Ù„Ø§Øª Ø§Ù„Ù„ÙŠ Ø¬Ø±Ø¨Ùˆ Ø§Ù„Ù…Ù†ØªØ¬</p>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="ÙØ§Ø·Ù…Ø© Ø§Ù„Ø²Ù‡Ø±Ø§Ø¡" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>ÙØ§Ø·Ù…Ø© Ø§Ù„Ø²Ù‡Ø±Ø§Ø¡</h4>
+                                <div class="testimonial-location">ðŸ“ Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">â­â­â­â­â­</div>
+                        <p class="testimonial-text">
+                            "ÙˆØ§Ù„Ù„Ù‡ Ù…Ø§ Ù†Ø¯Ù…Øª! ÙˆÙ„Ø¯ÙŠ Ø¹Ù…Ø±Ùˆ 5 Ø³Ù†ÙˆØ§Øª ÙˆÙ…Ø±ÙŠØ­ Ø¨Ø²Ø§Ù ÙÙŠ Ø§Ù„Ù…Ù‚Ø¹Ø¯. Ù‚Ø¨Ù„ ÙƒÙ†Øª ÙƒÙ†Ø®Ø§Ù Ù†Ø®Ø±Ø¬ Ù…Ø¹Ø§Ù‡ Ø¨Ø§Ù„Ø³ÙŠØ§Ø±Ø©ØŒ Ø¯Ø§Ø¨Ø§ Ø±Ø§Ø­Ø© Ø§Ù„Ø¨Ø§Ù„. Ø§Ù„Ø­Ù…Ø¯ Ù„Ù„Ù‡ Ø´Ø±ÙŠØªÙˆ Ù‚Ø¨Ù„ Ù…Ø§ ÙŠÙ‚Ø¹ Ø´ÙŠ Ø­Ø§Ø¬Ø©. Ø§Ù„Ø«Ù…Ù† Ø±Ø®ÙŠØµ Ø¨Ø§Ù„Ù…Ù‚Ø§Ø±Ù†Ø© Ù…Ø¹ Ø³Ù„Ø§Ù…Ø© ÙˆÙ„Ø¯ÙŠ!"
+                        </p>
+                        <span class="verified-badge">âœ“ Ø¹Ù…ÙŠÙ„ Ù…Ø¤ÙƒØ¯</span>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Ù…Ø­Ù…Ø¯ Ø§Ù„Ø¹Ù„ÙˆÙŠ" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>Ù…Ø­Ù…Ø¯ Ø§Ù„Ø¹Ù„ÙˆÙŠ</h4>
+                                <div class="testimonial-location">ðŸ“ Ø§Ù„Ø±Ø¨Ø§Ø·</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">â­â­â­â­â­</div>
+                        <p class="testimonial-text">
+                            "Ø£Ù†Ø§ Ø£Ø¨ Ù„ØªÙˆØ£Ù…ÙŠÙ†ØŒ Ø¹Ù…Ø±Ù‡Ù… 6 Ø³Ù†ÙˆØ§Øª. Ø´Ø±ÙŠØª 2 Ù…Ù† Ù‡Ø§Ø¯ Ø§Ù„Ù…Ù‚Ø§Ø¹Ø¯ ÙˆØ§Ù„Ø­Ù…Ø¯ Ù„Ù„Ù‡. Ø¬ÙˆØ¯Ø© Ù…Ù…ØªØ§Ø²Ø© ÙˆØ§Ù„ØªØ±ÙƒÙŠØ¨ Ø³Ù‡Ù„ Ø¨Ø²Ø§Ù. Ø­ØªÙ‰ ÙÙŠ Ø§Ù„ØªØ§ÙƒØ³ÙŠ ÙƒÙ†Ø­Ø·Ù‡Ù… ÙˆÙˆÙ„Ø§Ø¯ÙŠ Ø¢Ù…Ù†ÙŠÙ†. Ø§Ù„Ø¯ÙØ¹ Ø¹Ù†Ø¯ Ø§Ù„Ø§Ø³ØªÙ„Ø§Ù… Ø®Ù„Ø§Ù†ÙŠ Ù…Ø·Ù…Ø¦Ù†. Ø´ÙƒØ±Ø§Ù‹ Ù„ÙŠÙƒÙ…!"
+                        </p>
+                        <span class="verified-badge">âœ“ Ø¹Ù…ÙŠÙ„ Ù…Ø¤ÙƒØ¯</span>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Ø³Ù„Ù…Ù‰ Ø¨Ù†Ø¹Ù„ÙŠ" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>Ø³Ù„Ù…Ù‰ Ø¨Ù†Ø¹Ù„ÙŠ</h4>
+                                <div class="testimonial-location">ðŸ“ Ù…Ø±Ø§ÙƒØ´</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">â­â­â­â­â­</div>
+                        <p class="testimonial-text">
+                            "Ù‚Ø¨Ù„ ÙƒÙ†Øª ÙƒÙ†Ø¬Ù„Ø³ Ø¨Ù†ØªÙŠ ÙÙŠ Ø­Ø¶Ù†ÙŠ Ø£Ùˆ ÙƒÙ†Ø­Ø·Ù‡Ø§ ÙÙŠ Ø§Ù„ÙƒØ±Ø³ÙŠ Ø§Ù„Ø¹Ø§Ø¯ÙŠ Ø¨Ù„Ø§ Ø­Ù…Ø§ÙŠØ©. ÙŠÙˆÙ… ÙˆØ§Ø­Ø¯ ØªØ®Ù„Ø¹Øª Ø¨Ø²Ø§Ù Ù…Ù„ÙŠ Ø§Ù„Ø³ÙŠØ§Ø±Ø© ÙˆÙ‚ÙØ§Øª ÙØ¬Ø£Ø©! Ù…Ù† Ø¯ÙŠÙƒ Ø§Ù„Ø³Ø§Ø¹Ø© Ù‚Ø±Ø±Øª Ù†Ø´Ø±ÙŠ Ø§Ù„Ù…Ù‚Ø¹Ø¯. Ø¯Ø§Ø¨Ø§ Ù…Ø±ØªØ§Ø­Ø© Ø§Ù„Ø¨Ø§Ù„ ÙˆØ¨Ù†ØªÙŠ Ø¢Ù…Ù†Ø©. Ù…Ø§ØªØ³ØªÙ†Ø§ÙˆØ´!"
+                        </p>
+                        <span class="verified-badge">âœ“ Ø¹Ù…ÙŠÙ„ Ù…Ø¤ÙƒØ¯</span>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop" alt="ÙŠØ§Ø³ÙŠÙ† Ø§Ù„Ø¥Ø¯Ø±ÙŠØ³ÙŠ" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>ÙŠØ§Ø³ÙŠÙ† Ø§Ù„Ø¥Ø¯Ø±ÙŠØ³ÙŠ</h4>
+                                <div class="testimonial-location">ðŸ“ ÙØ§Ø³</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">â­â­â­â­â­</div>
+                        <p class="testimonial-text">
+                            "Ø§Ù„Ù…Ù†ØªØ¬ ÙˆØµÙ„ ÙÙŠ Ø§Ù„ÙˆÙ‚Øª ÙˆØ§Ù„Ø¬ÙˆØ¯Ø© ÙÙˆÙ‚ Ø§Ù„ØªÙˆÙ‚Ø¹Ø§Øª! ÙˆÙ„Ø¯ÙŠ ÙƒÙŠØ­Ø¨ Ø§Ù„Ù…Ù‚Ø¹Ø¯ Ø­ÙŠØª Ù…Ø±ÙŠØ­. ÙƒÙ†Øª ÙƒÙ†Ø®Ø§Ù Ù…Ù† Ø§Ù„Ø·Ø±ÙŠÙ‚ Ø§Ù„Ø·ÙˆÙŠÙ„Ø© Ø¨Ø§Ø´ Ù†Ù…Ø´ÙŠÙˆ Ù„Ù„Ø¹Ø§Ø¦Ù„Ø©ØŒ Ø¯Ø§Ø¨Ø§ Ù…Ø§ Ø¹Ù†Ø¯ÙŠ Ø­ØªÙ‰ Ù…Ø´ÙƒÙ„. 299 Ø¯Ø±Ù‡Ù…ØŸ ÙˆØ§Ù„Ù„Ù‡ ÙŠØ³ØªØ­Ù‚ Ø­ØªÙ‰ 1000 Ø¯Ø±Ù‡Ù…!"
+                        </p>
+                        <span class="verified-badge">âœ“ Ø¹Ù…ÙŠÙ„ Ù…Ø¤ÙƒØ¯</span>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop" alt="Ù†Ø§Ø¯ÙŠØ© Ø§Ù„ÙØ§Ø³ÙŠ" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>Ù†Ø§Ø¯ÙŠØ© Ø§Ù„ÙØ§Ø³ÙŠ</h4>
+                                <div class="testimonial-location">ðŸ“ Ø·Ù†Ø¬Ø©</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">â­â­â­â­â­</div>
+                        <p class="testimonial-text">
+                            "ØµØºÙŠØ± ÙˆØ®ÙÙŠÙØŒ ÙƒÙ†Ø­Ø·Ùˆ ÙÙŠ Ø§Ù„Ø´Ù†Ø·Ø© Ø¯ÙŠØ§Ù„ Ø§Ù„Ø³ÙŠØ§Ø±Ø©. ÙƒÙ„ Ù…Ø±Ø© ÙƒÙ†Ø®Ø±Ø¬ ÙƒÙŠÙƒÙˆÙ† Ù…Ø¹Ø§ÙŠØ§. Ø­ØªÙ‰ Ù…Ù„ÙŠ ÙƒÙ†Ù…Ø´ÙŠÙˆ Ø¹Ù†Ø¯ Ø§Ù„Ø¹Ø§Ø¦Ù„Ø© Ø£Ùˆ Ù†Ø³Ø§ÙØ±ÙˆØŒ Ø§Ù„Ø£Ø·ÙØ§Ù„ Ù…Ø­Ù…ÙŠÙŠÙ†. Ø®Ø¯Ù…Ø© Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡ Ù…Ù…ØªØ§Ø²Ø© ÙˆØ§Ù„ØªÙˆØµÙŠÙ„ ÙƒØ§Ù† Ø³Ø±ÙŠØ¹. Ø´ÙƒØ±Ø§Ù‹ Ø¨Ø²Ø§Ù!"
+                        </p>
+                        <span class="verified-badge">âœ“ Ø¹Ù…ÙŠÙ„ Ù…Ø¤ÙƒØ¯</span>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop" alt="Ø¹Ø¨Ø¯ Ø§Ù„Ø±Ø­Ù…Ù† Ø§Ù„ØªØ§Ø²ÙŠ" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>Ø¹Ø¨Ø¯ Ø§Ù„Ø±Ø­Ù…Ù† Ø§Ù„ØªØ§Ø²ÙŠ</h4>
+                                <div class="testimonial-location">ðŸ“ Ø£ÙƒØ§Ø¯ÙŠØ±</div>
+                            </div>
+                        </div>
+                        <div class="testimonial-rating">â­â­â­â­â­</div>
+                        <p class="testimonial-text">
+                            "ÙƒÙ†Øª Ù…ØªØ±Ø¯Ø¯ ÙÙŠ Ø§Ù„Ø¨Ø¯Ø§ÙŠØ©ØŒ ÙˆÙ„ÙƒÙ† Ù…Ù„ÙŠ Ø´ÙØª Ø§Ù„ØªÙ‚ÙŠÙŠÙ…Ø§Øª ÙˆØ§Ù„ÙÙŠØ¯ÙŠÙˆØŒ Ù‚Ø±Ø±Øª Ù†Ø¬Ø±Ø¨. ÙˆØ§Ù„Ù„Ù‡ Ù…Ø§ Ù†Ø¯Ù…Øª! Ø¨Ù†ØªÙŠ Ø¹Ù…Ø±Ù‡Ø§ 4 Ø³Ù†ÙˆØ§Øª ÙˆÙ…Ø±ØªØ§Ø­Ø© Ø¨Ø²Ø§Ù. Ø§Ù„Ù…Ù‚Ø¹Ø¯ Ø³Ù‡Ù„ Ø§Ù„ØªÙ†Ø¸ÙŠÙ ÙˆØ§Ù„ØªØ±ÙƒÙŠØ¨. Ù†ØµÙŠØ­ØªÙŠ: Ù…Ø§ØªÙÙƒØ±ÙˆØ´ Ø¨Ø²Ø§ÙØŒ ØµØ­Ø© ÙˆÙ„Ø§Ø¯ÙƒÙ… Ø£Ù‡Ù…!"
+                        </p>
+                        <span class="verified-badge">âœ“ Ø¹Ù…ÙŠÙ„ Ù…Ø¤ÙƒØ¯</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Form - REDESIGNED -->
+        <div class="order-section" id="order">
+            <div class="container">
+                <h2>ðŸŽ Ø§Ø­Ø¬Ø² Ù…Ù‚Ø¹Ø¯Ùƒ Ø§Ù„Ø¢Ù† ÙˆØ§Ø³ØªÙØ¯ Ù…Ù† Ø§Ù„Ø¹Ø±Ø¶ Ø§Ù„Ø®Ø§Øµ</h2>
+                <p class="order-subtitle">Ø§Ù…Ù„Ø£ Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª Ø¯ÙŠØ§Ù„Ùƒ ÙˆØ³Ù†ØªØµÙ„ Ø¨Ùƒ Ù„ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ø·Ù„Ø¨</p>
+
+                <div class="order-container">
+                    <form id="orderForm" onsubmit="submitOrder(event)">
+                        <div class="form-group">
+                            <label for="fullName">Ø§Ù„Ø§Ø³Ù… Ø§Ù„ÙƒØ§Ù…Ù„ <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Ù…Ø«Ø§Ù„: Ù…Ø­Ù…Ø¯ Ø§Ù„Ø£Ù…ÙŠÙ†">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Ø§Ù„Ø¹Ù†ÙˆØ§Ù† Ø§Ù„ÙƒØ§Ù…Ù„ <span class="required">*</span></label>
+                            <textarea id="address" name="address" required placeholder="Ù…Ø«Ø§Ù„: Ø­ÙŠ Ø§Ù„Ø³Ù„Ø§Ù…ØŒ Ø´Ø§Ø±Ø¹ 12ØŒ Ø±Ù‚Ù… 45ØŒ Ø§Ù„Ø¯Ø§Ø± Ø§Ù„Ø¨ÙŠØ¶Ø§Ø¡"></textarea>
+                            <p class="form-helper">ÙŠØ±Ø¬Ù‰ ÙƒØªØ§Ø¨Ø© Ø§Ù„Ø¹Ù†ÙˆØ§Ù† Ø§Ù„ÙƒØ§Ù…Ù„: Ø§Ù„Ù…Ø¯ÙŠÙ†Ø©ØŒ Ø§Ù„Ø­ÙŠØŒ Ø§Ù„Ø´Ø§Ø±Ø¹ØŒ Ø±Ù‚Ù… Ø§Ù„Ù…Ù†Ø²Ù„</p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Ø±Ù‚Ù… Ø§Ù„Ù‡Ø§ØªÙ <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required placeholder="06XXXXXXXX" pattern="[0-9]{10}">
+                            <p class="form-helper">Ø£Ø¯Ø®Ù„ Ø±Ù‚Ù… Ù‡Ø§ØªÙÙƒ Ø¨ØµÙŠØºØ©: 06XXXXXXXX</p>
+                        </div>
+
+                        <div class="order-summary">
+                            <h3 style="color: #2c3e50; margin-bottom: 15px; text-align: center;">ðŸ“‹ Ù…Ù„Ø®Øµ Ø§Ù„Ø·Ù„Ø¨</h3>
+                            <div class="summary-row">
+                                <span>Ù…Ù‚Ø¹Ø¯ Ø§Ù„Ø³ÙŠØ§Ø±Ø© Ø§Ù„Ù…Ø­Ù…ÙˆÙ„ Ù„Ù„Ø£Ø·ÙØ§Ù„</span>
+                                <span>299 Ø¯Ø±Ù‡Ù…</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Ø§Ù„ØªÙˆØµÙŠÙ„</span>
+                                <span style="color: #27ae60;">Ù…Ø¬Ø§Ù†ÙŠ</span>
+                            </div>
+                            <div class="summary-row summary-total">
+                                <span>Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹</span>
+                                <span>299 Ø¯Ø±Ù‡Ù…</span>
+                            </div>
+                        </div>
+
+                        <div class="cod-info">
+                            ðŸ’µ Ø§Ù„Ø¯ÙØ¹ Ø¹Ù†Ø¯ Ø§Ù„Ø§Ø³ØªÙ„Ø§Ù… Ù…ØªØ§Ø­
+                            <br>
+                            <small>ØªØ¯ÙØ¹ ÙÙ‚Ø· Ù…Ù„ÙŠ ÙŠÙˆØµÙ„Ùƒ Ø§Ù„Ù…Ù†ØªØ¬ Ù„Ø¹Ù†Ø¯Ùƒ</small>
+                        </div>
+
+                        <button type="submit" class="submit-button">
+                            âœ… Ø£ÙƒØ¯ Ø·Ù„Ø¨ÙŠ Ø§Ù„Ø¢Ù† - 299 Ø¯Ø±Ù‡Ù… ÙÙ‚Ø·
+                        </button>
+
+                        <div class="security-badges">
+                            <div class="security-item">
+                                <span>ðŸ”’</span>
+                                <span>Ù…Ø¹Ù„ÙˆÙ…Ø§ØªÙƒ Ù…Ø­Ù…ÙŠØ© 100%</span>
+                            </div>
+                            <div class="security-item">
+                                <span>ðŸšš</span>
+                                <span>ØªÙˆØµÙŠÙ„ 2-4 Ø£ÙŠØ§Ù…</span>
+                            </div>
+                            <div class="security-item">
+                                <span>â†©ï¸</span>
+                                <span>Ø¥Ø±Ø¬Ø§Ø¹ Ù…Ø¬Ø§Ù†ÙŠ</span>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- قسم القصة المؤثرة + القصة الحقيقية -->
-    <div class="story-section">
-      <!-- محتوى القصة كامل ... -->
-    </div>
-    <!-- قسم السعر والعرض -->
-    <div class="price-section">
-        <div class="container">
-            <div class="price-box">
-                <h2>🎁 عرض خاص لفترة محدودة</h2>
-                <span class="old-price">599 درهم</span>
-                <span class="current-price">299 درهم</span>
-                <span class="discount-badge">وفّر 300 درهم!</span>
-                <p class="urgency-text">⏰ باقي فقط 17 قطعة بهاد السعر!</p>
-                <button class="cta-primary" onclick="scrollToOrder()">
-                    🛒 احصل عليه الآن - الدفع عند الاستلام
-                </button>
-            </div>
-        </div>
-    </div>
-    <!-- قسم الفيديو التجريبي -->
-    <div class="video-section"><!-- أكمل الفيديو كما هو بالملف الأصلي --></div>
-    <!-- قسم الميزات -->
-    <div class="features-section"><!-- الميزات من الملف الأصلي --></div>
-    <!-- قسم الإحصائيات الاجتماعية -->
-    <div class="social-proof"><!-- الإحصائيات --></div>
-    <!-- شهادات العملاء بالكامل -->
-    <div class="testimonials-section"><!-- شهادات العملاء --></div>
-    <!-- فورم الطلب بالكامل -->
-    <div class="order-section" id="order">
-        <div class="container">
-            <h2>🎁 احجز مقعدك الآن واستفد من العرض الخاص</h2>
-            <p class="order-subtitle">املأ المعلومات ديالك وسنتصل بك لتأكيد الطلب</p>
-            <div class="order-container">
-                <form id="orderForm" onsubmit="submitOrder(event)">
-                  <div class="form-group">
-                      <label for="fullName">الاسم الكامل <span class="required">*</span></label>
-                      <input type="text" id="fullName" name="fullName" required placeholder="مثال: محمد الأمين">
-                  </div>
-                  <div class="form-group">
-                      <label for="address">العنوان الكامل <span class="required">*</span></label>
-                      <textarea id="address" name="address" required placeholder="مثال: حي السلام، شارع 12، رقم 45، الدار البيضاء"></textarea>
-                      <p class="form-helper">يرجى كتابة العنوان الكامل: المدينة، الحي، الشارع، رقم المنزل</p>
-                  </div>
-                  <div class="form-group">
-                      <label for="phone">رقم الهاتف <span class="required">*</span></label>
-                      <input type="tel" id="phone" name="phone" required placeholder="06XXXXXXXX" pattern="[0-9]{10}">
-                      <p class="form-helper">أدخل رقم هاتفك بصيغة: 06XXXXXXXX</p>
-                  </div>
-                  <div class="order-summary">
-                      <h3>📋 ملخص الطلب</h3>
-                      <div class="summary-row">
-                          <span>مقعد السيارة المحمول للأطفال</span>
-                          <span>299 درهم</span>
-                      </div>
-                      <div class="summary-row">
-                          <span>التوصيل</span>
-                          <span style="color: #27ae60;">مجاني</span>
-                      </div>
-                      <div class="summary-row summary-total">
-                          <span>المجموع</span>
-                          <span>299 درهم</span>
-                      </div>
-                  </div>
-                  <div class="cod-info">
-                      💵 الدفع عند الاستلام متاح
-                      <br>
-                      <small>تدفع فقط ملي يوصلك المنتج لعندك</small>
-                  </div>
-                  <button type="submit" class="submit-button">
-                      ✅ أكد طلبي الآن - 299 درهم فقط
-                  </button>
-                  <div class="security-badges">
-                      <div class="security-item"><span>🔒</span><span>معلوماتك محمية 100%</span></div>
-                      <div class="security-item"><span>🚚</span><span>توصيل 2-4 أيام</span></div>
-                      <div class="security-item"><span>↩️</span><span>إرجاع مجاني</span></div>
-                  </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- صفحة الشكر والتأكيد -->
+
+    <!-- Thank You Page -->
     <div class="thank-you-page" id="thankYouPage">
-        <!-- صفحة الشكر مع جميع التفاصيل ... --></div>
-    <!-- الفوتر -->
-    <div class="footer"><!-- الفوتر من الملف الأصلي --></div>
-    <!-- زر واتساب عائم -->
+        <div class="container">
+            <div class="success-animation">
+                <div class="success-icon">âœ“</div>
+            </div>
+
+            <h2>ðŸŽ‰ Ù…Ø¨Ø±ÙˆÙƒ! Ø·Ù„Ø¨Ùƒ ÙˆØµÙ„ Ø¹Ù†Ø¯Ù†Ø§</h2>
+            <p class="thank-you-message">
+                Ø´ÙƒØ±Ø§Ù‹ Ù„ÙŠÙƒ Ø¹Ù„Ù‰ Ø§Ù„Ø«Ù‚Ø©! ðŸ’š<br>
+                ÙØ±ÙŠÙ‚Ù†Ø§ ØºØ§Ø¯ÙŠ ÙŠØªØµÙ„ Ø¨ÙŠÙƒ Ø®Ù„Ø§Ù„ 24 Ø³Ø§Ø¹Ø© Ù„ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ø·Ù„Ø¨.<br>
+                Ø·ÙÙ„Ùƒ Ø¯Ø§Ø¨Ø§ ÙÙŠ Ø·Ø±ÙŠÙ‚Ùˆ Ø¨Ø§Ø´ ÙŠÙƒÙˆÙ† Ø£ÙƒØ«Ø± Ø£Ù…Ø§Ù†Ø§Ù‹!
+            </p>
+
+            <div class="order-details-box">
+                <h3>ðŸ“¦ ØªÙØ§ØµÙŠÙ„ Ø§Ù„Ø·Ù„Ø¨ Ø¯ÙŠØ§Ù„Ùƒ</h3>
+                <div class="detail-row">
+                    <span>Ø§Ù„Ø§Ø³Ù…:</span>
+                    <span id="confirmName"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Ø§Ù„Ø¹Ù†ÙˆØ§Ù†:</span>
+                    <span id="confirmAddress"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Ø±Ù‚Ù… Ø§Ù„Ù‡Ø§ØªÙ:</span>
+                    <span id="confirmPhone"></span>
+                </div>
+                <div class="detail-row">
+                    <span>Ø§Ù„Ù…Ø¨Ù„Øº Ø§Ù„Ø¥Ø¬Ù…Ø§Ù„ÙŠ:</span>
+                    <span>299 Ø¯Ø±Ù‡Ù…</span>
+                </div>
+                <div style="text-align: center; margin-top: 15px; color: #999;">
+                    Ø±Ù‚Ù… Ø§Ù„Ø·Ù„Ø¨: #<span id="orderNumber"></span>
+                </div>
+            </div>
+
+            <a href="https://wa.me/212XXXXXXXXX?text=Ù…Ø±Ø­Ø¨Ø§Ù‹ØŒ Ø¹Ù†Ø¯ÙŠ Ø³Ø¤Ø§Ù„ Ø¨Ø®ØµÙˆØµ Ø·Ù„Ø¨ÙŠ" class="whatsapp-cta" target="_blank">
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                ØªÙˆØ§ØµÙ„ Ù…Ø¹Ù†Ø§ Ø¹Ù„Ù‰ Ø§Ù„ÙˆØ§ØªØ³Ø§Ø¨
+            </a>
+
+            <div class="next-steps">
+                <h3>ðŸ“Œ Ø§Ù„Ø®Ø·ÙˆØ§Øª Ø§Ù„Ù‚Ø§Ø¯Ù…Ø©</h3>
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ø·Ù„Ø¨</h4>
+                        <p>ØºØ§Ø¯ÙŠ Ù†ØªØµÙ„Ùˆ Ø¨ÙŠÙƒ Ø®Ù„Ø§Ù„ 24 Ø³Ø§Ø¹Ø© Ù„ØªØ£ÙƒÙŠØ¯ Ø§Ù„Ù…Ø¹Ù„ÙˆÙ…Ø§Øª</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>ØªØ­Ø¶ÙŠØ± Ø§Ù„Ø´Ø­Ù†Ø©</h4>
+                        <p>Ø§Ù„Ù…Ù†ØªØ¬ ØºØ§Ø¯ÙŠ ÙŠØªØ­Ø¶Ø± ÙˆÙŠØªØ´Ø­Ù† Ù„ÙŠÙƒ ÙÙŠ Ù†ÙØ³ Ø§Ù„ÙŠÙˆÙ…</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Ø§Ù„ØªÙˆØµÙŠÙ„ ÙˆØ§Ù„Ø¯ÙØ¹</h4>
+                        <p>Ø§Ù„Ù…Ù†ØªØ¬ ØºØ§Ø¯ÙŠ ÙŠÙˆØµÙ„Ùƒ Ø®Ù„Ø§Ù„ 2-4 Ø£ÙŠØ§Ù… ÙˆØªØ®Ù„Øµ Ø¹Ù†Ø¯ Ø§Ù„Ø§Ø³ØªÙ„Ø§Ù…</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="footer-content">
+            <p style="font-size: 1.1em; font-weight: bold; margin-bottom: 12px;">
+                ðŸš— Ø­Ù…Ø§ÙŠØ© Ø§Ù„Ø£Ø·ÙØ§Ù„ - Ù„Ø£Ù† Ø³Ù„Ø§Ù…Ø© Ø£Ø·ÙØ§Ù„Ù†Ø§ Ø£ÙˆÙ„ÙˆÙŠØ©
+            </p>
+            <p>Â© 2025 Ø¬Ù…ÙŠØ¹ Ø§Ù„Ø­Ù‚ÙˆÙ‚ Ù…Ø­ÙÙˆØ¸Ø©</p>
+            <p>ðŸ“ž Ø®Ø¯Ù…Ø© Ø§Ù„Ø¹Ù…Ù„Ø§Ø¡: +212 6XX XXX XXX</p>
+            <p>ðŸ“§ Ø§Ù„Ø¨Ø±ÙŠØ¯ Ø§Ù„Ø¥Ù„ÙƒØªØ±ÙˆÙ†ÙŠ: contact@example.com</p>
+            <p style="margin-top: 12px; font-size: 0.85em; opacity: 0.7;">
+                Ù†Ø­Ù† Ù…Ù„ØªØ²Ù…ÙˆÙ† Ø¨ØªÙˆÙÙŠØ± Ø£Ø¹Ù„Ù‰ Ù…Ø¹Ø§ÙŠÙŠØ± Ø§Ù„Ø¬ÙˆØ¯Ø© ÙˆØ§Ù„Ø£Ù…Ø§Ù† Ù„Ø£Ø·ÙØ§Ù„ÙƒÙ…
+            </p>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp -->
     <div class="floating-whatsapp">
         <a href="https://wa.me/212XXXXXXXXX" target="_blank">
-            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="..."/></svg>
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
         </a>
     </div>
+
     <script>
-        // تغيير صورة المنتج الرئيسية
-        function changeMainImage(src) {document.getElementById('mainProductImage').src = src;}
-        // تمرير للطلب
-        function scrollToOrder() {document.getElementById('order').scrollIntoView({ behavior: 'smooth' });}
-        // عداد مؤقت العرض
+        // Change main product image
+        function changeMainImage(src) {
+            document.getElementById('mainProductImage').src = src;
+        }
+
+        // Scroll to order form
+        function scrollToOrder() {
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Countdown timer
         function startCountdown() {
-            let hours = 23; let minutes = 45; let seconds = 12;
+            let hours = 23;
+            let minutes = 45;
+            let seconds = 12;
+
             setInterval(() => {
-                seconds--; if (seconds < 0) { seconds = 59; minutes--; }
-                if (minutes < 0) { minutes = 59; hours--; }
-                if (hours < 0) { hours = 23; minutes = 59; seconds = 59; }
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+                if (hours < 0) {
+                    hours = 23;
+                    minutes = 59;
+                    seconds = 59;
+                }
+
                 const display = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
                 document.getElementById('countdown').textContent = display;
             }, 1000);
         }
+
         startCountdown();
-        // إرسال فورم الطلب
+
+        // Submit order form
         function submitOrder(event) {
             event.preventDefault();
+
             const fullName = document.getElementById('fullName').value;
             const address = document.getElementById('address').value;
             const phone = document.getElementById('phone').value;
+
+            // Generate order number
             const orderNumber = 'MAR' + Date.now().toString().slice(-6);
+
+            // Hide main content
             document.getElementById('mainContent').style.display = 'none';
+
+            // Show thank you page
             const thankYouPage = document.getElementById('thankYouPage');
             thankYouPage.classList.add('active');
+
+            // Fill confirmation details
             document.getElementById('confirmName').textContent = fullName;
             document.getElementById('confirmAddress').textContent = address;
             document.getElementById('confirmPhone').textContent = phone;
             document.getElementById('orderNumber').textContent = orderNumber;
+
+            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
-            console.log('Order submitted:', { fullName, address, phone, orderNumber });
+
+            // Log order
+            console.log('Order submitted:', {
+                fullName,
+                address,
+                phone,
+                orderNumber,
+                product: 'Ù…Ù‚Ø¹Ø¯ Ø§Ù„Ø³ÙŠØ§Ø±Ø© Ø§Ù„Ù…Ø­Ù…ÙˆÙ„ Ù„Ù„Ø£Ø·ÙØ§Ù„',
+                price: '299 Ø¯Ø±Ù‡Ù…'
+            });
         }
     </script>
 </body>
