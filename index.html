@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقعد السيارة للأطفال - حماية أغلى ما تملك</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cairo', 'Segoe UI', Tahoma, sans-serif; background: #f8f9fa; color: #2c3e50; line-height: 1.8; }
+        /* تحسين الأزرار لتناسب الجوال */
+        .cta-primary, .submit-button, .whatsapp-cta {
+            width: 100%;
+            max-width: 400px;
+            display: block;
+            margin: 15px auto !important;
+            padding: 18px 0;
+            font-size: 1.15em;
+            border-radius: 50px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+        .cta-primary { background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; font-weight: bold; border: none; cursor: pointer; }
+        .cta-primary:active { transform: scale(0.98);}
+        .submit-button { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; font-weight: bold; border: none; cursor: pointer; }
+        .submit-button:active { transform: scale(0.98);}
+        .whatsapp-cta { background: #25D366; color: white; font-weight: bold; border: none; cursor: pointer; align-items: center; gap: 12px; text-decoration: none; }
+        .whatsapp-cta:active { transform: scale(0.98);}
+        @media (max-width: 768px) {
+            .cta-primary, .submit-button, .whatsapp-cta {
+                font-size: 1.1em;
+                padding: 15px 0;
+                max-width: 100%;
+                margin: 12px 0;
+            }
+        }
+        /* باقي CSS الأصلي ... */
+        /* Floating WhatsApp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            z-index: 999;
+        }
+        .floating-whatsapp a {
+            background: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8em;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+        }
+        @media (max-width: 768px){
+            .floating-whatsapp { bottom: 20px; left: 20px; }
+            .floating-whatsapp a { width: 50px; height: 50px; font-size: 1.6em; }
+        }
+        /* جميع تنسيقات باقي الصفحة بنفس الأصلي ... */
+    </style>
+</head>
+<body>
+    <!-- شريط الإعلان -->
+    <div class="announcement-bar">
+        ⚡ عرض خاص لفترة محدودة: خصم 50% + توصيل مجاني لجميع المدن المغربية ⚡
+    </div>
+    <!-- الهيدر -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">🚗 حماية الأطفال</div>
+            <a href="#order" class="header-cta">اطلب الآن</a>
+        </div>
+    </div>
+    <!-- صور المنتج بالأعلى -->
+    <div class="product-images-top">
+        <div class="container">
+            <div class="images-container">
+                <img src="IMAGE_1.jpg" alt="مقعد السيارة للأطفال" class="main-product-image" id="mainProductImage">
+                <div class="thumbnail-gallery">
+                    <img src="IMAGE_1.jpg" alt="صورة 1" class="thumbnail-img" onclick="changeMainImage(this.src)">
+                    <img src="IMAGE_2.jpg" alt="صورة 2" class="thumbnail-img" onclick="changeMainImage(this.src)">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- باقي أقسام الصفحة (القصة، العرض، فيديو، الميزات، شهادات) ... كما في الكود الأصلي ... -->
+    <!-- قسم السعر والعرض -->
+    <div class="price-section">
+        <div class="container">
+            <div class="price-box">
+                <h2>🎁 عرض خاص لفترة محدودة</h2>
+                <span class="old-price">599 درهم</span>
+                <span class="current-price">299 درهم</span>
+                <span class="discount-badge">وفّر 300 درهم!</span>
+                <p class="urgency-text">⏰ باقي فقط 17 قطعة بهاد السعر!</p>
+                <button class="cta-primary" onclick="scrollToOrder()">🛒 احصل عليه الآن - الدفع عند الاستلام</button>
+            </div>
+        </div>
+    </div>
+    <!-- فورم الطلب -->
+    <div class="order-section" id="order">
+        <div class="container">
+            <h2>🎁 احجز مقعدك الآن واستفد من العرض الخاص</h2>
+            <p class="order-subtitle">املأ المعلومات ديالك وسنتصل بك لتأكيد الطلب</p>
+            <div class="order-container">
+                <form id="orderForm" onsubmit="submitOrder(event)">
+                    <div class="form-group">
+                        <label for="fullName">الاسم الكامل <span class="required">*</span></label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="مثال: محمد الأمين">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">العنوان الكامل <span class="required">*</span></label>
+                        <textarea id="address" name="address" required placeholder="مثال: حي السلام، شارع 12، رقم 45، الدار البيضاء"></textarea>
+                        <p class="form-helper">يرجى كتابة العنوان الكامل: المدينة، الحي، الشارع، رقم المنزل</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف <span class="required">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="06XXXXXXXX" pattern="[0-9]{10}">
+                        <p class="form-helper">أدخل رقم هاتفك بصيغة: 06XXXXXXXX</p>
+                    </div>
+                    <div class="order-summary">
+                        <h3>📋 ملخص الطلب</h3>
+                        <div class="summary-row">
+                            <span>مقعد السيارة المحمول للأطفال</span><span>299 درهم</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>التوصيل</span><span style="color: #27ae60;">مجاني</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>المجموع</span><span>299 درهم</span>
+                        </div>
+                    </div>
+                    <div class="cod-info">
+                        💵 الدفع عند الاستلام متاح<br>
+                        <small>تدفع فقط ملي يوصلك المنتج لعندك</small>
+                    </div>
+                    <button type="submit" class="submit-button">✅ أكد طلبي الآن - 299 درهم فقط</button>
+                    <div class="security-badges">
+                        <div class="security-item"><span>🔒</span><span>معلوماتك محمية 100%</span></div>
+                        <div class="security-item"><span>🚚</span><span>توصيل 2-4 أيام</span></div>
+                        <div class="security-item"><span>↩️</span><span>إرجاع مجاني</span></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- صفحة الشكر والتأكيد -->
+    <div class="thank-you-page" id="thankYouPage">
+        <div class="container">
+            <div class="success-animation"><div class="success-icon">✓</div></div>
+            <h2>🎉 مبروك! طلبك وصل عندنا</h2>
+            <p class="thank-you-message">شكراً ليك على الثقة! 💚<br> فريقنا غادي يتصل بيك خلال 24 ساعة لتأكيد الطلب.<br> طفلك دابا في طريقو باش يكون أكثر أماناً!</p>
+            <div class="order-details-box">
+                <h3>📦 تفاصيل الطلب ديالك</h3>
+                <div class="detail-row"><span>الاسم:</span><span id="confirmName"></span></div>
+                <div class="detail-row"><span>العنوان:</span><span id="confirmAddress"></span></div>
+                <div class="detail-row"><span>رقم الهاتف:</span><span id="confirmPhone"></span></div>
+                <div class="detail-row"><span>المبلغ الإجمالي:</span><span>299 درهم</span></div>
+                <div style="text-align: center; margin-top: 15px; color: #999;">رقم الطلب: #<span id="orderNumber"></span></div>
+            </div>
+            <a href="https://wa.me/212XXXXXXXXX?text=مرحباً، عندي سؤال بخصوص طلبي" class="whatsapp-cta" target="_blank">
+                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="..."/></svg>
+                تواصل معنا على الواتساب
+            </a>
+            <!-- الخطوات القادمة ... -->
+        </div>
+    </div>
+    <!-- الفوتر -->
+    <div class="footer">
+        <div class="footer-content">
+            <p>🚗 حماية الأطفال - لأن سلامة أطفالنا أولوية</p>
+            <p>© 2025 جميع الحقوق محفوظة</p>
+            <p>📞 خدمة العملاء: +212 6XX XXX XXX</p>
+            <p>📧 البريد الإلكتروني: contact@example.com</p>
+            <p style="margin-top: 12px; font-size: 0.85em; opacity: 0.7;">نحن ملتزمون بتوفير أعلى معايير الجودة والأمان لأطفالكم</p>
+        </div>
+    </div>
+    <!-- زر واتساب عائم -->
+    <div class="floating-whatsapp">
+        <a href="https://wa.me/212XXXXXXXXX" target="_blank">
+            <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="..."/></svg>
+        </a>
+    </div>
+    <script>
+        // تغيير صورة المنتج الرئيسية
+        function changeMainImage(src) {document.getElementById('mainProductImage').src = src;}
+        // تمرير للطلب
+        function scrollToOrder() {document.getElementById('order').scrollIntoView({ behavior: 'smooth' });}
+        // عداد العرض
+        function startCountdown() {
+            let hours = 23; let minutes = 45; let seconds = 12;
+            setInterval(() => {
+                seconds--; if (seconds < 0) { seconds = 59; minutes--; }
+                if (minutes < 0) { minutes = 59; hours--; }
+                if (hours < 0) { hours = 23; minutes = 59; seconds = 59; }
+                const display = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                document.getElementById('countdown').textContent = display;
+            }, 1000);
+        }
+        startCountdown();
+        // إرسال فورم الطلب
+        function submitOrder(event) {
+            event.preventDefault();
+            const fullName = document.getElementById('fullName').value;
+            const address = document.getElementById('address').value;
+            const phone = document.getElementById('phone').value;
+            const orderNumber = 'MAR' + Date.now().toString().slice(-6);
+            document.getElementById('mainContent').style.display = 'none';
+            const thankYouPage = document.getElementById('thankYouPage');
+            thankYouPage.classList.add('active');
+            document.getElementById('confirmName').textContent = fullName;
+            document.getElementById('confirmAddress').textContent = address;
+            document.getElementById('confirmPhone').textContent = phone;
+            document.getElementById('orderNumber').textContent = orderNumber;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // هنا يمكن حفظ الطلب في قاعدة البيانات إذا أردت
+            console.log('Order submitted:', { fullName, address, phone, orderNumber });
+        }
+    </script>
+</body>
+</html>
